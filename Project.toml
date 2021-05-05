@@ -3,6 +3,9 @@ uuid = "34f12e4f-112c-443b-b3bb-d1e63a4bc7d7"
 authors = ["Christian Ludwig <ludwig@ma.tum.de>"]
 version = "0.1.0"
 
+[compat]
+julia = "1.6"
+
 [deps]
 Cairo = "159f3aea-2a34-519c-b102-8c37f9878175"
 ComplexPortraits = "17699382-6153-4e65-8b03-b2dc23b1a9dc"
