@@ -5,12 +5,14 @@ import Gtk
 import ComplexVisual
 @ComplexVisual.import_huge
 
+include("monkeypatch.jl")
+
 """macro for importing the *huge* set of symbols."""
 macro import_huge()
     :(
         using ComplexVisualGtk:
             cvg_wait_for_destroy, cvg_create_win_for_canvas,
-            cvg_handler_for_canvas, cvg_visualize
+            cvg_handler_for_canvas, cvg_visualize, cvg_close
     )
 end
 
@@ -110,6 +112,12 @@ function (cah::CVG_CanvasActionHandler)(widget, event)
     end
     return true
 end
+
+function cvg_close(cah::CVG_CanvasActionHandler)
+    close_window(cah.window)
+    return nothing
+end
+
 
 """
 constructs window for a `CV_2DCanvas`.
