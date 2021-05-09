@@ -143,10 +143,10 @@ function cvg_handler_for_canvas(canvas::canT, title;
     return handler
 end
 
-function cvg_visualize(scene::CV_DomainCodomainScene;
+function cvg_visualize(scene::CV_2DScene;
         title::AbstractString="Complex Visual")
     handler = cvg_handler_for_canvas(
-        scene.can_layout, title,
+        cv_get_can_layout(scene), title,
         update_action_cb = cv_get_actionpixel_update(scene),
         update_state_cb = cv_get_statepixel_update(scene))
     return handler
