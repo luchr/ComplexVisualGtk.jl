@@ -102,7 +102,7 @@ end
 function (cah::CVG_CanvasActionHandler)(widget, event)
     gx, gy = round(Int32, event.x), round(Int32, event.y)  # Pos in gtk_canvas
     last = cah.last_action_point
-    if gx != last.x  ||  gy != last.y
+    if gx != last.x  ||  gy != last.y || !(event isa Gtk.GdkEventMotion)
         last.x, last.y = gx, gy
         cah.update_action_cb(gx, gy)
 
